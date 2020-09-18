@@ -1,0 +1,5 @@
+So, decided to make the automator more aWsOmE by forking it and adding extra changes? Great! (oh btw pull requests are welcomed) But, keep in mind that while Nightly version
+(The ' on ' "tested" version) gets updated after optimisations from a test (earlier than nightly formally known as a canary) version which make the update less frequent, the
+canary version (you should probably check it out it's really great! :D) (https://www.github.com/big-sur-automator/canary) is WAY more frequent when it comes to updating, forkers
+(like you) may have a pain in the butt. If you wan't to add your own canary, non-release, etc etc go that way. It will probably save your butt. No, seriously. It will. Now that you
+read all that documentation, go fork this automator! (Also credit barrykn)

@@ -1,0 +1,161 @@
+
+
+
+
+
+
+NOTICE: PLEASE, DO NOT ATTEMPT TO CLONE THE CANARY CHANNEL FOR A PUBLIC RELEASE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This documentation specifically goes through how BSA works and what informations you need to modify BSA.
+
+So, the big sur automator basically works in
+Download big sur installer, apply it  to the applications folder, make and patch a big sur USB and change the boot location.
+
+Downloading
+
+BSA makes uses of cURL (Client Uniform Resource Identifier) for downloading the installer which is integrated on macOS by default.
+
+Format
+  1                    2                     3         4
+[curl][/Users/Shared/InstallAssistant.pkg][--url][Installer URL]
+
+1) Executes cURL
+2) A directory specified for the installer. It will save to the shared users folder which makes it easier. Requires root permission (sudo)
+3) option for the cURL that sets the next texts as URL for the installer
+4) Now, that's the place where download links go. You can replace that with any DDL (Direct Download Link) with macOS Big Sur package.
+
+Installing
+
+BSA uses the "installer" command which is made by Apple, which allows you to install .pkg files via Terminal
+
+Format
+    1          2      3              4            5     6
+[installer][-store][-pkg]["Directory to .pkg"][-target][/]
+
+1) Executes installer
+2) For some reason, installer command requires -store command to install stuff.
+3) Adds a option for installer that tells the installer to handle the file as .pkg extension way.
+4) Tells the installer command the directory for the .pkg file
+5) Sets the next word as directory for the installation if valid.
+6) Tells the installer to install on the boot disk.
+
+Flashing
+
+BSA uses "createinstallmedia" utility to flash macOS into the USB
+
+Format
+                                              1                                                   2            3              4
+[/Applications/Install\ macOS\ Big\ Sur\ Beta.app/Contents/Resources/createinstallmedia] [--nointeraction] [--volume] [Directory to USB]
+
+1) Directory to the installer app > createinstallmedia executable
+2) Disable confirmation
+3) Sets the USB directory
+4) Directory to slave USB
+
+Patching
+
+BSA uses the micropatcher.sh which is included in the barrykn micropatcher (https://www.github.com/barrykn/big-sur-micropatcher)
+But first, we have to clone it.
+
+Format
+     1
+[git clone] https://www.github.com/barrykn/big-sur-micropatcher
+
+1) Executes git cloner (git clone)
+
+Format (Actual patching)
+ 1                        2
+[sh] [~/big-sur-micropatcher/micropatcher.sh]
+
+1) executes "sh" executable. It's just nicer
+2) Directory to micropatcher.sh
+
+Setting nvram boot argument
+
+This is technically not worth it to include, since micropatcher does the job.
+
+Setting the boot entry
+
+BSA uses "bless" command included on all Macs to set the boot volume.
+
+Format
+
+   1        2                          3                        4
+[bless] [-mount] [/Volumes/Install\ macOS\ Big\ Sur\ Beta] [--setBoot]
+
+1) Executes bless
+2) Sets the volume to work with
+3) Directory to the patched USB
+4) Sets the setted volume as the boot volume.
+
+All combined makes these
+
+
+
+nightlybsh.sh
+
+#!/bin/bash
+echo -e “e[0;33mBig Sur Automator X Stable[0m”
+curl -o /Users/Shared/InstallAssistant.pkg --url http://swcdn.apple.com/content/downloads/34/37/001-26097-A_OYW4Z0U99Z/gdas3ubse9fasb0217grmmyplfd6o7mqfp/InstallAssistant.pkg
+installer -store -pkg "/Users/Shared/InstallAssistant.pkg" -target /
+/Applications/Install\ macOS\ Big\ Sur\ Beta.app/Contents/Resources/createinstallmedia --nointeraction --volume /Volumes/volume
+git clone https://www.github.com/barrykn/big-sur-micropatcher
+sh ~/big-sur-micropatcher/micropatcher.sh
+nvram boot-args="-no_compat_check amfi_get_out_of_my_way" echo Success
+ bless -mount /Volumes/Install\ macOS\ Big\ Sur\ Beta --setBoot
+ rm -rf ~/big-sur-micropatcher
+ rm -rf /Users/Shared/InstallAssistant.pkg
+echo success
+
+nightlybshpublicbeta.sh
+
+#!/bin/bash
+echo big sur automator X stable
+curl -o /Users/Shared/InstallAssistant.pkg --url http://swcdn.apple.com/content/downloads/22/49/001-36806-A_PLHUUGQ7C6/y680rlbwudm0kr7kugbt658ot99pqyo9hv/InstallAssistant.pkg
+installer -store -pkg "/Users/Shared/InstallAssistant.pkg" -target /
+/Applications/Install\ macOS\ Big\ Sur\ Beta.app/Contents/Resources/createinstallmedia --nointeraction --volume /Volumes/volume
+git clone https://www.github.com/barrykn/big-sur-micropatcher
+sh ~/big-sur-micropatcher/micropatcher.sh
+nvram boot-args="-no_compat_check amfi_get_out_of_my_way" echo Success
+bless -mount /Volumes/Install\ macOS\ Big\ Sur\ Beta --setBoot
+rm -rf ~/big-sur-micropatcher
+rm -rf /Users/Shared/InstallAssistant.pkg
+echo success
+
+Good luck on forking!
+
+
+
+

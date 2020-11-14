@@ -1,4 +1,4 @@
-# The canary version was moved to a private repo, contact for access.
+# The project is semi-dead. This means that i'll still update it as long as I recieve a message with an issue addressed or a new idea, I'll update it.
 
 # Big Sur Automator "it saves your ass."
 

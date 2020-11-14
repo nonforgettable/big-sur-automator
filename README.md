@@ -1,4 +1,4 @@
-# The project is semi-dead. This means that i'll still update it as long as I recieve a message with an issue addressed or a new idea, I'll update it.
+# The project is semi-dead. This means that i'll still update it as long as I recieve a message with an issue addressed or a new idea, I'll update it. Please assign an issue here if you found any.
 
 # Big Sur Automator "it saves your ass."
 
@@ -48,7 +48,7 @@ If some features are disabled like WiFi (most common), this extra guide will pro
 - **https://www.github.com/NotDan2/big-sur-automator** Unofficial fork of BSA. More frequent changes
 - **https://github.com/nonforgettable/big-sur-automator/blob/master/for%20forkers/forker%20documentation** Developer documentation for forkers and reverse engineers or people who are intrested to file pull request
 
-# big-sur-automator certified contacts
+# big-sur-automator contacts
 iMessage: json.us@icloud.com
 Telegram: nonforgettable 
 Email: json.us@icloud.com
@@ -58,5 +58,6 @@ Email 3: json.us@outlook.com
 Contact if you have a problem thats too simple for a issue, help for forking, other development questions and pull request acception requests. 
 
 # Beta / Dev / Canary test
+Update: Closed. Contact for test request.
 Currently, only canary version exists and it's fully open to users (https://www.github.com/nonforgettable/big-sur-automator/canary) but, it will soon be closed soon. Contact me via above to request to be a beta / dev / canary tester. 
  

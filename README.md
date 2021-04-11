@@ -11,7 +11,7 @@ even more. Also, since version 1.0 stable, it's completly written in shell langu
 0. UNPLUG ALL EXTERNAL DISKS CONNECTED EXCEPT YOUR USB to USE WITH BIG SUR. ALL DATA WILL BE ERASED
 
 1. Run the commands below step by step on the terminal app
-'git clone https://github.com/nonforgettable/big-sur-automator'
+`git clone https://github.com/nonforgettable/big-sur-automator`
 `cd big-sur-automator`
 
 2. (This step is automated now) Format your USB drive to the configuration under (using disk utility).

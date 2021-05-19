@@ -1,4 +1,4 @@
-# I finally got a Mac. To be specific, a M1 MacBook Air. So, as promisd, i'll slowly start updating this project. Maybe it's too late, who knows.
+# I finally got a Mac. To be specific, a M1 MacBook Air. So, as promised, i'll slowly start updating this project. Maybe it's too late, who knows.
 
 # Big Sur Automator "it saves your ass."
 

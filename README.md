@@ -1,4 +1,4 @@
-# The project is semi-dead. This means that i'll still update it as long as I recieve a message with an issue addressed or a new idea, I'll update it. Please assign an issue here if you found any.
+# I finally got a Mac. To be specific, a M1 MacBook Air. So, as promisd, i'll slowly start updating this project. Maybe it's too late, who knows.
 
 # Big Sur Automator "it saves your ass."
 
